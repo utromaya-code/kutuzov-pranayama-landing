@@ -401,12 +401,19 @@ a:hover {
 .hero__photo-frame {
   position: relative;
   width: 100%;
-  max-width: 480px;
+  max-width: 420px;
   aspect-ratio: 3 / 4;
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--accent-line);
   box-shadow: var(--shadow-strong);
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .hero__photo-frame {
+    max-width: 320px;
+  }
 }
 
 .hero__photo-frame::after {
@@ -673,8 +680,18 @@ a:hover {
 }
 
 .manifesto__visual {
-  position: sticky;
-  top: calc(var(--header-h) + var(--space-4));
+  position: relative;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+@media (min-width: 960px) {
+  .manifesto__visual {
+    position: sticky;
+    top: calc(var(--header-h) + var(--space-4));
+    max-width: none;
+    margin: 0;
+  }
 }
 
 .manifesto__photo {
@@ -1036,15 +1053,15 @@ a:hover {
 .banner-image__caption {
   position: absolute;
   left: 50%;
-  bottom: var(--space-5);
+  bottom: clamp(var(--space-3), 4vw, var(--space-5));
   transform: translateX(-50%);
   z-index: 1;
-  width: min(720px, 90%);
+  width: min(720px, 88%);
   text-align: center;
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 500;
-  font-size: clamp(1.05rem, 0.9rem + 0.8vw, 1.45rem);
+  font-size: clamp(0.98rem, 0.85rem + 0.8vw, 1.45rem);
   line-height: 1.4;
   color: #fff;
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.7);
