@@ -1223,6 +1223,33 @@ a:hover {
   margin: 0;
 }
 
+/* SVG hover spotlight: dim non-hovered groups, highlight the hovered one */
+.research__diagram svg g {
+  transition: opacity 0.3s var(--ease);
+}
+
+.research__diagram svg g path,
+.research__diagram svg g rect {
+  transition: stroke-width 0.3s var(--ease), stroke 0.3s var(--ease);
+}
+
+.research__diagram svg:hover g {
+  opacity: 0.5;
+}
+
+.research__diagram svg:hover g:hover {
+  opacity: 1;
+}
+
+.research__diagram svg:hover g:hover path {
+  stroke-width: 2.4;
+}
+
+.research__diagram svg:hover g:hover rect {
+  stroke-width: 2;
+  stroke: var(--accent-strong);
+}
+
 .research__note {
   margin-top: var(--space-5);
   padding: var(--space-4);
@@ -1564,13 +1591,19 @@ a:hover {
 }
 
 .tariff--featured {
-  border-color: rgba(201, 168, 120, 0.45);
-  background: linear-gradient(180deg, rgba(201, 168, 120, 0.06) 0%, rgba(255, 255, 255, 0.025) 100%);
+  border-color: rgba(201, 168, 120, 0.4);
+  background: linear-gradient(180deg, rgba(201, 168, 120, 0.05) 0%, rgba(7, 10, 18, 0.6) 100%);
   box-shadow:
-    0 0 0 1px rgba(201, 168, 120, 0.18),
-    0 30px 70px rgba(201, 168, 120, 0.08),
-    var(--shadow-soft);
+    0 0 0 1px rgba(201, 168, 120, 0.15),
+    0 20px 50px rgba(201, 168, 120, 0.04),
+    var(--shadow-strong);
   position: relative;
+}
+
+@media (min-width: 920px) {
+  .tariff--featured {
+    transform: scale(1.02);
+  }
 }
 
 .tariff--featured::before {
