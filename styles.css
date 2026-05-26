@@ -4,28 +4,40 @@
    ========================================================= */
 
 :root {
-  /* Палитра */
-  --bg: #0a0f1a;
-  --bg-soft: #0e1422;
-  --surface: #131a2a;
-  --surface-strong: #1a2238;
-  --line: #1f2a44;
-  --line-strong: #2c3a5c;
+  /* Палитра — глубокий матовый графит с лёгким холодным оттенком */
+  --bg: #070a12;
+  --bg-soft: #0a0e18;
+  --surface: rgba(255, 255, 255, 0.025);
+  --surface-strong: rgba(255, 255, 255, 0.04);
+  --surface-solid: #0e1320;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.14);
 
-  --text: #ece6dd;
+  --text: #e6e8ee;
   --text-strong: #ffffff;
-  --muted: #94a0b6;
-  --faint: #6b7691;
+  --muted: #9097a4;
+  --faint: #6a7080;
 
   --accent: #c9a878;          /* warm sand — созерцательная традиция */
-  --accent-strong: #d8b88a;
-  --accent-soft: rgba(201, 168, 120, 0.14);
-  --accent-line: rgba(201, 168, 120, 0.32);
+  --accent-strong: #dbbb8c;
+  --accent-soft: rgba(201, 168, 120, 0.10);
+  --accent-line: rgba(201, 168, 120, 0.28);
 
-  --science: #6ea8a1;         /* sage teal — научные элементы */
-  --science-soft: rgba(110, 168, 161, 0.14);
+  --science: #7eb5ad;         /* sage teal — научные элементы */
+  --science-soft: rgba(126, 181, 173, 0.10);
 
   --danger: #d27d6e;
+
+  /* Металлический градиент для заголовков */
+  --gradient-heading: linear-gradient(180deg, #ffffff 0%, #ffffff 30%, #b8bec8 100%);
+  --gradient-heading-soft: linear-gradient(180deg, #ffffff 0%, #c8cdd6 100%);
+
+  /* Glass tokens */
+  --glass-bg: rgba(255, 255, 255, 0.025);
+  --glass-bg-hover: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(201, 168, 120, 0.28);
+  --glass-blur: saturate(140%) blur(14px);
 
   /* Типографика */
   --font-display: "Cormorant Garamond", "Times New Roman", Georgia, serif;
@@ -113,6 +125,97 @@ a:hover {
 ::selection {
   background: var(--accent-soft);
   color: var(--text-strong);
+}
+
+/* =========================================================
+   Metallic gradient headings (premium feel)
+   ========================================================= */
+
+.hero__title,
+.section__title,
+.module__title,
+.final-cta__title {
+  background: var(--gradient-heading);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Slightly softer gradient for larger H3-ish display titles */
+.audience-card__title,
+.tariff__name,
+.result__title {
+  background: var(--gradient-heading-soft);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@supports not (-webkit-background-clip: text) {
+  .hero__title,
+  .section__title,
+  .module__title,
+  .final-cta__title,
+  .audience-card__title,
+  .tariff__name,
+  .result__title {
+    color: var(--text-strong);
+    -webkit-text-fill-color: var(--text-strong);
+  }
+}
+
+/* =========================================================
+   Glassmorphism for cards
+   ========================================================= */
+
+.audience-card,
+.tariff,
+.result,
+.theme,
+.practice-item,
+.faq-item,
+.format__block,
+.research__diagram,
+.ecosystem__chain,
+.practice__accent {
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+/* =========================================================
+   Mobile typography tightening
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .hero__title {
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+  }
+  .section__title,
+  .final-cta__title {
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+  }
+  .module__title {
+    font-size: 1.45rem;
+    line-height: 1.18;
+  }
+  .hero__subtitle {
+    font-size: 1.15rem;
+    line-height: 1.4;
+  }
+  .section {
+    padding: var(--space-7) 0;
+  }
+  .hero {
+    padding-top: calc(var(--header-h) + var(--space-5));
+    padding-bottom: var(--space-7);
+  }
+  .tariff__cta.btn {
+    padding: 0.85rem 1.3rem;
+    font-size: 0.95rem;
+  }
 }
 
 /* =========================================================
@@ -1461,24 +1564,42 @@ a:hover {
 }
 
 .tariff--featured {
-  border-color: var(--accent-line);
-  background: linear-gradient(180deg, var(--surface-strong) 0%, var(--surface) 100%);
-  box-shadow: var(--shadow-soft);
+  border-color: rgba(201, 168, 120, 0.45);
+  background: linear-gradient(180deg, rgba(201, 168, 120, 0.06) 0%, rgba(255, 255, 255, 0.025) 100%);
+  box-shadow:
+    0 0 0 1px rgba(201, 168, 120, 0.18),
+    0 30px 70px rgba(201, 168, 120, 0.08),
+    var(--shadow-soft);
+  position: relative;
+}
+
+.tariff--featured::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(201, 168, 120, 0.32) 0%, transparent 50%);
+  z-index: -1;
+  filter: blur(8px);
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .tariff__badge {
   position: absolute;
-  top: -10px;
+  top: -11px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 0.3rem 0.8rem;
+  padding: 0.32rem 0.95rem;
   background: var(--accent);
   color: #1a1308;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(201, 168, 120, 0.32);
 }
 
 .tariff__name {
