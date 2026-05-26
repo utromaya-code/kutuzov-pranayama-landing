@@ -841,53 +841,65 @@ a:hover {
 }
 
 /* =========================================================
-   Deadlocks — Block 3½ (Профессиональные дефициты)
+   Deadlocks — Block 3½ (editorial triptych)
+   Тройной типографический блок без cards/boxes
    ========================================================= */
 
-.deadlocks__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-4);
-}
-
-@media (min-width: 760px) {
-  .deadlocks__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.deadlocks__list {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--space-5);
 }
 
 .deadlock {
-  padding: var(--space-5);
-  border: 1px dashed var(--line-strong);
-  background: rgba(255, 255, 255, 0.01);
-  border-radius: var(--radius-lg);
-  display: flex;
-  flex-direction: column;
-  transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--line);
 }
 
-.deadlock:hover {
-  border-color: rgba(201, 168, 120, 0.3);
-  background: rgba(255, 255, 255, 0.02);
+.deadlock:first-child {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line);
+}
+
+.deadlock:last-child {
+  border-bottom: 0;
+}
+
+@media (min-width: 760px) {
+  .deadlock {
+    grid-template-columns: 80px 1fr;
+    column-gap: var(--space-5);
+    padding: var(--space-6) 0;
+    align-items: start;
+  }
 }
 
 .deadlock__num {
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  letter-spacing: 0.1em;
-  color: var(--faint);
-  margin-bottom: var(--space-3);
-  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 1.6rem + 1.4vw, 3rem);
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  opacity: 0.85;
+}
+
+.deadlock__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
 }
 
 .deadlock__title {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: 1.35rem;
-  line-height: 1.25;
-  margin: 0 0 var(--space-4);
+  font-size: clamp(1.25rem, 1rem + 0.6vw, 1.55rem);
+  line-height: 1.2;
+  margin: 0;
   background: var(--gradient-heading-soft);
   -webkit-background-clip: text;
   background-clip: text;
@@ -901,49 +913,41 @@ a:hover {
   }
 }
 
-.deadlock__text {
-  font-size: 0.94rem;
-  line-height: 1.7;
+.deadlock__problem {
+  font-size: 0.97rem;
+  line-height: 1.75;
   color: var(--muted);
-  margin: 0 0 var(--space-3);
+  margin: 0;
 }
 
-.deadlock__text strong {
-  color: var(--text);
-  font-weight: 600;
-}
-
-.deadlock__text em {
+.deadlock__problem em {
   font-style: italic;
   color: var(--text);
+  font-family: var(--font-body);
 }
 
 .deadlock__solution {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.55rem;
-  margin: auto 0 0;
-  padding-top: var(--space-3);
-  border-top: 1px solid var(--line);
-  font-size: 0.92rem;
-  line-height: 1.6;
+  position: relative;
+  padding-left: var(--space-3);
+  margin: var(--space-2) 0 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--accent);
+  letter-spacing: 0.005em;
 }
 
-.deadlock__solution--accent { color: var(--accent); }
-.deadlock__solution--science { color: var(--science); }
-.deadlock__solution--strong { color: var(--text-strong); }
-
-.deadlock__solution strong {
-  color: inherit;
-  font-weight: 600;
-}
-
-.deadlock__check {
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
-  margin-top: 0.22rem;
-  color: currentColor;
+.deadlock__solution::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent) 0%, transparent 100%);
+  border-radius: 1px;
 }
 
 /* =========================================================
