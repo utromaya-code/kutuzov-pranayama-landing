@@ -1,0 +1,784 @@
+/* =========================================================
+   Neuro-Universe — Editorial B&W overlay (styles-bw.css)
+   Альтернативная версия лендинга: строго чередующиеся
+   чёрные и кремовые секции в духе журнального разворота.
+   Подключается ПОСЛЕ styles.css и точечно переопределяет
+   палитру / типографику. HTML остаётся идентичным основной
+   версии, только секции помечены классами bw-dark / bw-light.
+   ========================================================= */
+
+:root {
+  /* B&W палитра */
+  --bw-black: #0a0a0a;
+  --bw-charcoal: #1a1a1a;
+  --bw-cream: #f4f1e8;
+  --bw-cream-soft: #ebe7dc;
+  --bw-cream-strong: #faf7f0;
+
+  --bw-text-on-dark: #f4f1e8;
+  --bw-text-on-dark-strong: #ffffff;
+  --bw-muted-on-dark: #9a958a;
+  --bw-faint-on-dark: #6e6a60;
+
+  --bw-text-on-light: #14130f;
+  --bw-text-on-light-strong: #000000;
+  --bw-muted-on-light: #595852;
+  --bw-faint-on-light: #8d8a80;
+
+  --bw-line-on-dark: rgba(244, 241, 232, 0.10);
+  --bw-line-on-dark-strong: rgba(244, 241, 232, 0.20);
+  --bw-line-on-light: rgba(20, 19, 15, 0.10);
+  --bw-line-on-light-strong: rgba(20, 19, 15, 0.22);
+
+  /* Единственный мягкий тёплый акцент — используется крайне редко */
+  --bw-accent: #b89868;
+  --bw-accent-deep: #8a6f3f;
+}
+
+/* Базовый фон страницы и шрифт-смуссинг */
+html[data-theme="bw"] {
+  background: var(--bw-cream);
+}
+
+html[data-theme="bw"] body {
+  background: var(--bw-cream);
+  font-feature-settings: "ss01", "kern", "liga";
+}
+
+/* =========================================================
+   Тематический контекст: переопределение переменных
+   styles.css через каскад
+   ========================================================= */
+
+.bw-dark {
+  --bg: var(--bw-black);
+  --bg-soft: var(--bw-black);
+  --surface: rgba(244, 241, 232, 0.04);
+  --surface-strong: rgba(244, 241, 232, 0.06);
+  --surface-solid: var(--bw-charcoal);
+  --line: var(--bw-line-on-dark);
+  --line-strong: var(--bw-line-on-dark-strong);
+
+  --text: var(--bw-text-on-dark);
+  --text-strong: var(--bw-text-on-dark-strong);
+  --muted: var(--bw-muted-on-dark);
+  --faint: var(--bw-faint-on-dark);
+
+  --accent: var(--bw-accent);
+  --accent-strong: var(--bw-accent);
+  --accent-soft: rgba(184, 152, 104, 0.10);
+  --accent-line: rgba(184, 152, 104, 0.28);
+
+  --gradient-heading: linear-gradient(180deg, #ffffff 0%, #ffffff 30%, #c8c4b8 100%);
+  --gradient-heading-soft: linear-gradient(180deg, #ffffff 0%, #d5d1c4 100%);
+
+  --glass-bg: rgba(244, 241, 232, 0.04);
+  --glass-border: rgba(244, 241, 232, 0.10);
+
+  background: var(--bw-black);
+  color: var(--bw-text-on-dark);
+}
+
+.bw-light {
+  --bg: var(--bw-cream);
+  --bg-soft: var(--bw-cream-soft);
+  --surface: rgba(20, 19, 15, 0.025);
+  --surface-strong: rgba(20, 19, 15, 0.05);
+  --surface-solid: var(--bw-cream-strong);
+  --line: var(--bw-line-on-light);
+  --line-strong: var(--bw-line-on-light-strong);
+
+  --text: var(--bw-text-on-light);
+  --text-strong: var(--bw-text-on-light-strong);
+  --muted: var(--bw-muted-on-light);
+  --faint: var(--bw-faint-on-light);
+
+  --accent: var(--bw-accent-deep);
+  --accent-strong: var(--bw-accent-deep);
+  --accent-soft: rgba(138, 111, 63, 0.08);
+  --accent-line: rgba(138, 111, 63, 0.30);
+
+  --gradient-heading: linear-gradient(180deg, #000000 0%, #1a1a1a 60%, #3a3833 100%);
+  --gradient-heading-soft: linear-gradient(180deg, #14130f 0%, #2a2a25 100%);
+
+  --glass-bg: rgba(20, 19, 15, 0.025);
+  --glass-border: rgba(20, 19, 15, 0.10);
+
+  background: var(--bw-cream);
+  color: var(--bw-text-on-light);
+}
+
+/* =========================================================
+   Header (sticky bar)
+   ========================================================= */
+
+html[data-theme="bw"] .site-header {
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom-color: rgba(244, 241, 232, 0.10);
+}
+
+html[data-theme="bw"] .brand {
+  color: var(--bw-text-on-dark-strong);
+}
+
+html[data-theme="bw"] .brand__dot {
+  background: var(--bw-accent);
+}
+
+html[data-theme="bw"] .brand__sub {
+  color: var(--bw-muted-on-dark);
+}
+
+html[data-theme="bw"] .nav__link {
+  color: var(--bw-muted-on-dark);
+}
+
+html[data-theme="bw"] .nav__link:hover {
+  color: var(--bw-text-on-dark-strong);
+}
+
+html[data-theme="bw"] .nav__cta {
+  background: var(--bw-cream);
+  color: var(--bw-black);
+  border-color: var(--bw-cream);
+}
+
+html[data-theme="bw"] .nav__cta:hover {
+  background: #ffffff;
+  color: var(--bw-black);
+}
+
+/* =========================================================
+   Photos: pure monochrome treatment
+   ========================================================= */
+
+html[data-theme="bw"] .hero__photo {
+  filter: grayscale(1) contrast(1.08) brightness(0.96);
+}
+
+html[data-theme="bw"] .manifesto__photo {
+  filter: grayscale(1) contrast(1.12) brightness(0.92);
+}
+
+html[data-theme="bw"] .practice__accent-image img,
+html[data-theme="bw"] .author__photo,
+html[data-theme="bw"] .format__photo img {
+  filter: grayscale(1) contrast(1.05);
+}
+
+html[data-theme="bw"] .banner-image img {
+  filter: grayscale(1) contrast(1.15) brightness(0.88);
+}
+
+/* =========================================================
+   Hero overrides
+   ========================================================= */
+
+.bw-dark.hero {
+  background:
+    radial-gradient(ellipse at 80% 10%, rgba(244, 241, 232, 0.04) 0%, transparent 60%),
+    var(--bw-black);
+}
+
+.bw-dark.hero::before {
+  background-image:
+    linear-gradient(rgba(244, 241, 232, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 241, 232, 0.03) 1px, transparent 1px);
+  opacity: 0.5;
+}
+
+html[data-theme="bw"] .hero__title {
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  font-size: clamp(3rem, 2rem + 5vw, 6rem);
+}
+
+html[data-theme="bw"] .hero__subtitle {
+  color: var(--bw-text-on-dark);
+}
+
+html[data-theme="bw"] .hero__description {
+  color: var(--bw-muted-on-dark);
+}
+
+html[data-theme="bw"] .hero__eyebrow {
+  background: transparent;
+  border-color: rgba(184, 152, 104, 0.4);
+  color: var(--bw-accent);
+  letter-spacing: 0.18em;
+}
+
+html[data-theme="bw"] .hero__meta {
+  border-color: rgba(244, 241, 232, 0.12);
+}
+
+html[data-theme="bw"] .hero__photo-frame {
+  border: 1px solid rgba(244, 241, 232, 0.18);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+}
+
+html[data-theme="bw"] .hero__photo-frame::after {
+  background: linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+/* =========================================================
+   Section eyebrow: simple dash + label (no chip in light)
+   ========================================================= */
+
+.bw-light .section__eyebrow {
+  color: var(--bw-text-on-light);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+}
+
+.bw-light .section__eyebrow::before {
+  background: var(--bw-text-on-light);
+}
+
+.bw-dark .section__eyebrow {
+  color: var(--bw-accent);
+  letter-spacing: 0.22em;
+}
+
+.bw-dark .section__eyebrow::before {
+  background: var(--bw-accent);
+}
+
+/* =========================================================
+   Buttons
+   ========================================================= */
+
+.bw-light .btn--primary,
+html[data-theme="bw"] .bw-light .btn--primary {
+  background: var(--bw-black);
+  color: var(--bw-cream);
+  border-color: var(--bw-black);
+}
+
+.bw-light .btn--primary:hover {
+  background: var(--bw-charcoal);
+  color: var(--bw-cream);
+}
+
+.bw-dark .btn--primary {
+  background: var(--bw-cream);
+  color: var(--bw-black);
+  border-color: var(--bw-cream);
+}
+
+.bw-dark .btn--primary:hover {
+  background: #ffffff;
+  color: var(--bw-black);
+}
+
+.bw-light .btn--ghost {
+  background: transparent;
+  color: var(--bw-text-on-light);
+  border-color: var(--bw-line-on-light-strong);
+}
+
+.bw-light .btn--ghost:hover {
+  background: var(--bw-text-on-light);
+  color: var(--bw-cream);
+  border-color: var(--bw-text-on-light);
+}
+
+.bw-dark .btn--ghost {
+  background: transparent;
+  color: var(--bw-text-on-dark);
+  border-color: var(--bw-line-on-dark-strong);
+}
+
+.bw-dark .btn--ghost:hover {
+  background: var(--bw-cream);
+  color: var(--bw-black);
+  border-color: var(--bw-cream);
+}
+
+/* =========================================================
+   Manifesto
+   ========================================================= */
+
+.bw-dark.manifesto {
+  background: var(--bw-black);
+}
+
+html[data-theme="bw"] .manifesto__quote {
+  border-left-color: var(--bw-accent);
+  font-weight: 400;
+}
+
+/* =========================================================
+   Ecosystem chain
+   ========================================================= */
+
+.bw-light .ecosystem__chain {
+  background: var(--bw-cream-strong);
+  border-color: var(--bw-line-on-light);
+}
+
+.bw-light .ecosystem__step {
+  border-color: var(--bw-line-on-light);
+}
+
+.bw-light .ecosystem__step--current {
+  background: linear-gradient(90deg, rgba(138, 111, 63, 0.10) 0%, transparent 100%);
+}
+
+.bw-light .ecosystem__step-num {
+  color: var(--bw-accent-deep);
+}
+
+.bw-light .ecosystem__step-tag {
+  color: var(--bw-accent-deep);
+}
+
+.bw-light .ecosystem__text strong {
+  color: var(--bw-accent-deep);
+}
+
+/* =========================================================
+   Audiences cards on light bg
+   ========================================================= */
+
+.bw-light .audience-card {
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--bw-line-on-light);
+  border-radius: 0;
+  padding: var(--space-5) var(--space-3) 0;
+  backdrop-filter: none;
+}
+
+.bw-light .audience-card:hover {
+  background: transparent;
+  border-color: var(--bw-line-on-light);
+  transform: none;
+}
+
+.bw-light .audience-card__num {
+  color: var(--bw-accent-deep);
+}
+
+.bw-light .audience-card__subtitle {
+  color: var(--bw-accent-deep);
+}
+
+/* =========================================================
+   Program (dark)
+   ========================================================= */
+
+.bw-dark .module__num {
+  color: var(--bw-accent);
+}
+
+.bw-dark .theme {
+  background: rgba(244, 241, 232, 0.025);
+  border: 1px solid rgba(244, 241, 232, 0.08);
+}
+
+.bw-dark .theme:hover {
+  border-color: rgba(184, 152, 104, 0.35);
+}
+
+.bw-dark .theme__num {
+  color: var(--bw-accent);
+}
+
+/* =========================================================
+   Practice (light)
+   ========================================================= */
+
+.bw-light .practice__accent {
+  background: var(--bw-cream-strong);
+  border-color: var(--bw-line-on-light);
+}
+
+.bw-light .practice-item {
+  background: var(--bw-cream-strong);
+  border-color: var(--bw-line-on-light);
+}
+
+.bw-light .practice-item:hover {
+  border-color: var(--bw-line-on-light-strong);
+}
+
+.bw-light .practice-item--final {
+  background: var(--bw-cream-strong);
+  border-color: var(--bw-accent-deep);
+}
+
+.bw-light .practice-item__num {
+  color: var(--bw-accent-deep);
+}
+
+/* =========================================================
+   Banner — full-bleed B&W cinematic
+   ========================================================= */
+
+.bw-dark.banner-image {
+  height: clamp(340px, 42vw, 520px);
+}
+
+.bw-dark.banner-image::after {
+  background:
+    radial-gradient(ellipse at 30% 50%, transparent 0%, rgba(10, 10, 10, 0.7) 80%),
+    linear-gradient(180deg, rgba(10, 10, 10, 0.4) 0%, transparent 30%, transparent 70%, rgba(10, 10, 10, 0.6) 100%);
+}
+
+/* =========================================================
+   Research diagrams (light)
+   ========================================================= */
+
+.bw-light .research__diagram {
+  background: var(--bw-cream-strong);
+  border-color: var(--bw-line-on-light);
+}
+
+.bw-light .research__diagram-title {
+  color: var(--bw-text-on-light);
+}
+
+.bw-light .research__note {
+  background: rgba(138, 111, 63, 0.06);
+  border-color: rgba(138, 111, 63, 0.25);
+  color: var(--bw-text-on-light);
+}
+
+.bw-light .research__note strong {
+  color: var(--bw-accent-deep);
+}
+
+/* Repaint SVG diagram nodes on light bg */
+.bw-light .research__diagram svg text[fill="#ece6dd"] {
+  fill: var(--bw-text-on-light) !important;
+}
+
+.bw-light .research__diagram svg text[fill="#94a0b6"] {
+  fill: var(--bw-muted-on-light) !important;
+}
+
+.bw-light .research__diagram svg text[fill="#6b7691"] {
+  fill: var(--bw-faint-on-light) !important;
+}
+
+.bw-light .research__diagram svg rect[fill="#131a2a"] {
+  fill: var(--bw-cream) !important;
+}
+
+.bw-light .research__diagram svg rect[stroke="#c9a878"] {
+  stroke: var(--bw-accent-deep) !important;
+}
+
+.bw-light .research__diagram svg rect[stroke="#6ea8a1"] {
+  stroke: var(--bw-text-on-light) !important;
+}
+
+.bw-light .research__diagram svg text[fill="#c9a878"],
+.bw-light .research__diagram svg text[fill="#d8b88a"] {
+  fill: var(--bw-accent-deep) !important;
+}
+
+.bw-light .research__diagram svg text[fill="#6ea8a1"] {
+  fill: var(--bw-text-on-light) !important;
+}
+
+.bw-light .research__diagram svg path[stroke="#94a0b6"] {
+  stroke: var(--bw-muted-on-light) !important;
+  opacity: 0.85;
+}
+
+.bw-light .research__diagram svg path[stroke="#c9a878"] {
+  stroke: var(--bw-accent-deep) !important;
+}
+
+.bw-light .research__diagram svg path[stroke="#6ea8a1"] {
+  stroke: var(--bw-text-on-light) !important;
+}
+
+/* Marker arrowhead recolor */
+.bw-light .research__diagram svg marker polygon[fill="#c9a878"] {
+  fill: var(--bw-accent-deep) !important;
+}
+
+.bw-light .research__diagram svg marker polygon[fill="#6ea8a1"] {
+  fill: var(--bw-text-on-light) !important;
+}
+
+/* =========================================================
+   Results (dark)
+   ========================================================= */
+
+.bw-dark .result {
+  background: rgba(244, 241, 232, 0.03);
+  border-color: rgba(244, 241, 232, 0.08);
+}
+
+.bw-dark .result__num {
+  color: var(--bw-accent);
+}
+
+/* =========================================================
+   Author (light)
+   ========================================================= */
+
+.bw-light .author__role {
+  color: var(--bw-accent-deep);
+}
+
+.bw-light .author__text strong {
+  color: var(--bw-text-on-light-strong);
+}
+
+.bw-light .author__text a {
+  color: var(--bw-accent-deep);
+  text-decoration: underline;
+  text-decoration-color: rgba(138, 111, 63, 0.4);
+  text-underline-offset: 3px;
+}
+
+.bw-light .author__photo {
+  border-color: var(--bw-line-on-light);
+}
+
+.bw-light .author__credentials {
+  border-color: var(--bw-line-on-light);
+}
+
+.bw-light .author__credential-num {
+  color: var(--bw-accent-deep);
+}
+
+/* =========================================================
+   Format (dark)
+   ========================================================= */
+
+.bw-dark .format__block {
+  background: rgba(244, 241, 232, 0.03);
+  border-color: rgba(244, 241, 232, 0.08);
+}
+
+.bw-dark .format__block--accent {
+  background: linear-gradient(135deg, rgba(244, 241, 232, 0.04) 0%, rgba(184, 152, 104, 0.10) 130%);
+  border-color: rgba(184, 152, 104, 0.30);
+}
+
+.bw-dark .format__block-text strong {
+  color: var(--bw-text-on-dark-strong);
+}
+
+/* =========================================================
+   Pricing (light)
+   ========================================================= */
+
+.bw-light .tariff {
+  background: var(--bw-cream-strong);
+  border-color: var(--bw-line-on-light);
+  backdrop-filter: none;
+}
+
+.bw-light .tariff:hover {
+  border-color: var(--bw-line-on-light-strong);
+}
+
+.bw-light .tariff--featured {
+  background: var(--bw-black);
+  color: var(--bw-cream);
+  border-color: var(--bw-black);
+  box-shadow:
+    0 0 0 1px var(--bw-black),
+    0 30px 70px rgba(0, 0, 0, 0.15);
+}
+
+.bw-light .tariff--featured::before {
+  background: linear-gradient(180deg, rgba(244, 241, 232, 0.18) 0%, transparent 50%);
+  opacity: 0.4;
+}
+
+.bw-light .tariff--featured .tariff__name,
+.bw-light .tariff--featured .tariff__tagline,
+.bw-light .tariff--featured .tariff__feature,
+.bw-light .tariff--featured .tariff__fit,
+.bw-light .tariff--featured .tariff__access {
+  color: var(--bw-cream);
+  -webkit-text-fill-color: var(--bw-cream);
+}
+
+.bw-light .tariff--featured .tariff__name {
+  background: linear-gradient(180deg, #ffffff 0%, #d5d1c4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bw-light .tariff--featured .tariff__access {
+  background: rgba(244, 241, 232, 0.10);
+  color: var(--bw-cream);
+  border-color: rgba(244, 241, 232, 0.20);
+}
+
+.bw-light .tariff--featured .tariff__feature {
+  border-bottom-color: rgba(244, 241, 232, 0.12);
+}
+
+.bw-light .tariff--featured .tariff__feature::before {
+  border-color: var(--bw-cream);
+}
+
+.bw-light .tariff--featured .tariff__feature--strong::before {
+  background: var(--bw-cream);
+}
+
+.bw-light .tariff--featured .tariff__fit {
+  color: var(--bw-muted-on-dark);
+  border-top-color: rgba(244, 241, 232, 0.12);
+}
+
+.bw-light .tariff--featured .btn--primary {
+  background: var(--bw-cream);
+  color: var(--bw-black);
+  border-color: var(--bw-cream);
+}
+
+.bw-light .tariff--featured .btn--primary:hover {
+  background: #ffffff;
+  color: var(--bw-black);
+}
+
+.bw-light .tariff__badge {
+  background: var(--bw-black);
+  color: var(--bw-cream);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.bw-light .tariff__name {
+  color: var(--bw-text-on-light-strong);
+}
+
+.bw-light .tariff__tagline {
+  color: var(--bw-accent-deep);
+}
+
+.bw-light .tariff__access {
+  background: rgba(138, 111, 63, 0.10);
+  border-color: rgba(138, 111, 63, 0.28);
+  color: var(--bw-accent-deep);
+}
+
+.bw-light .tariff__feature {
+  color: var(--bw-text-on-light);
+  border-bottom-color: var(--bw-line-on-light);
+}
+
+.bw-light .tariff__feature::before {
+  border-color: var(--bw-accent-deep);
+}
+
+.bw-light .tariff__feature--strong::before {
+  background: var(--bw-accent-deep);
+}
+
+.bw-light .tariff__feature--muted {
+  color: var(--bw-faint-on-light);
+}
+
+.bw-light .tariff__fit {
+  color: var(--bw-muted-on-light);
+  border-top-color: var(--bw-line-on-light);
+}
+
+/* =========================================================
+   FAQ (dark)
+   ========================================================= */
+
+.bw-dark .faq-item {
+  background: rgba(244, 241, 232, 0.025);
+  border-color: rgba(244, 241, 232, 0.08);
+}
+
+.bw-dark .faq-item[open] {
+  border-color: rgba(184, 152, 104, 0.30);
+}
+
+/* =========================================================
+   Final CTA (light)
+   ========================================================= */
+
+.bw-light.final-cta {
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(138, 111, 63, 0.08) 0%, transparent 60%),
+    var(--bw-cream-soft);
+  border-color: var(--bw-line-on-light);
+}
+
+/* =========================================================
+   Footer (dark)
+   ========================================================= */
+
+.bw-dark.site-footer {
+  background: var(--bw-black);
+  border-color: rgba(244, 241, 232, 0.10);
+}
+
+.bw-dark .site-footer__brand {
+  color: var(--bw-text-on-dark-strong);
+}
+
+.bw-dark .site-footer__about,
+.bw-dark .site-footer__bottom {
+  color: var(--bw-muted-on-dark);
+  border-color: rgba(244, 241, 232, 0.10);
+}
+
+.bw-dark .site-footer__col-title {
+  color: var(--bw-faint-on-dark);
+}
+
+.bw-dark .site-footer__list a {
+  color: var(--bw-text-on-dark);
+}
+
+.bw-dark .site-footer__list a:hover {
+  color: var(--bw-accent);
+}
+
+/* =========================================================
+   Headings: gradient sourced from context vars
+   ========================================================= */
+
+html[data-theme="bw"] .hero__title,
+html[data-theme="bw"] .section__title,
+html[data-theme="bw"] .module__title,
+html[data-theme="bw"] .final-cta__title,
+html[data-theme="bw"] .audience-card__title,
+html[data-theme="bw"] .tariff__name,
+html[data-theme="bw"] .result__title {
+  background: var(--gradient-heading);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================================================
+   Subtle typographic refinements for editorial feel
+   ========================================================= */
+
+html[data-theme="bw"] .hero__title {
+  font-weight: 400;
+}
+
+html[data-theme="bw"] .section__title {
+  font-weight: 400;
+}
+
+html[data-theme="bw"] .module__title {
+  font-weight: 400;
+}
+
+html[data-theme="bw"] .deadlock__title,
+html[data-theme="bw"] .audience-card__title {
+  font-weight: 500;
+}
