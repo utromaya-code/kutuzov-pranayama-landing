@@ -841,6 +841,112 @@ a:hover {
 }
 
 /* =========================================================
+   Deadlocks — Block 3½ (Профессиональные дефициты)
+   ========================================================= */
+
+.deadlocks__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 760px) {
+  .deadlocks__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.deadlock {
+  padding: var(--space-5);
+  border: 1px dashed var(--line-strong);
+  background: rgba(255, 255, 255, 0.01);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.deadlock:hover {
+  border-color: rgba(201, 168, 120, 0.3);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.deadlock__num {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  color: var(--faint);
+  margin-bottom: var(--space-3);
+  text-transform: uppercase;
+}
+
+.deadlock__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.35rem;
+  line-height: 1.25;
+  margin: 0 0 var(--space-4);
+  background: var(--gradient-heading-soft);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@supports not (-webkit-background-clip: text) {
+  .deadlock__title {
+    color: var(--text-strong);
+    -webkit-text-fill-color: var(--text-strong);
+  }
+}
+
+.deadlock__text {
+  font-size: 0.94rem;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0 0 var(--space-3);
+}
+
+.deadlock__text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.deadlock__text em {
+  font-style: italic;
+  color: var(--text);
+}
+
+.deadlock__solution {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin: auto 0 0;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.deadlock__solution--accent { color: var(--accent); }
+.deadlock__solution--science { color: var(--science); }
+.deadlock__solution--strong { color: var(--text-strong); }
+
+.deadlock__solution strong {
+  color: inherit;
+  font-weight: 600;
+}
+
+.deadlock__check {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  margin-top: 0.22rem;
+  color: currentColor;
+}
+
+/* =========================================================
    Audiences
    ========================================================= */
 
