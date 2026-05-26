@@ -474,6 +474,14 @@
     </section>
 
     <!-- =================================================
+         Cinematic banner before research
+         ================================================= -->
+    <figure class="banner-image">
+      <img src="assets/leonid-banner.jpg" alt="Леонид Кутузов в практике — пашчимоттанасана" loading="lazy" width="1440" height="960">
+      <figcaption class="banner-image__caption">«Изменение паттерна дыхания — это прямое вмешательство в работу нервной системы»</figcaption>
+    </figure>
+
+    <!-- =================================================
          Block 6½. Research foundations
          ================================================= -->
     <section class="section" id="research">
@@ -481,12 +489,9 @@
         <span class="section__eyebrow">Научные основания</span>
         <h2 class="section__title">На что мы опираемся:<br>современная нейронаука дыхания</h2>
 
-        <div class="research__intro">
-          <div class="research__lead">
-            <p>Курс выстроен на корпусе рецензируемых публикаций по нейрофизиологии дыхания, вариабельности сердечного ритма, интероцепции и нейронауке медитации. Каждая теоретическая тема подкреплена обзорными статьями и оригинальными исследованиями — мы говорим о механизмах не «по ощущениям», а на основании доказательной базы.</p>
-            <p>Ниже — шесть из ключевых работ, формирующих научную рамку курса. В тарифе «Профессиональный» доступна полная база <strong>White Papers</strong> с дайджестами по каждой теме модулей.</p>
-          </div>
+        <p class="section__lead">Курс выстроен на корпусе рецензируемых публикаций по нейрофизиологии дыхания, вариабельности сердечного ритма, интероцепции и нейронауке медитации. Каждая теоретическая тема подкреплена обзорными статьями и оригинальными исследованиями — мы говорим о механизмах не «по ощущениям», а на основании доказательной базы.</p>
 
+        <div class="research__diagrams">
           <figure class="research__diagram" aria-label="Диаграмма ритмов ЭЭГ и их связь с дыхательными состояниями">
             <p class="research__diagram-title">Ритмы ЭЭГ и дыхательные состояния</p>
             <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" role="img">
@@ -543,79 +548,76 @@
                 <path d="M 0 263 Q 70 240, 140 263 T 280 263 T 400 263" stroke="#94a0b6" stroke-width="1.6" fill="none" opacity="0.7"/>
               </g>
             </svg>
-            <p class="paper__note" style="margin-top: 1rem;">Медленные техники пранаямы устойчиво усиливают α-ритм (релаксированное бодрствование), глубокая медитация вовлекает θ и γ. Гипервентиляция смещает спектр в сторону β и нарушает α-когерентность.</p>
+            <figcaption class="research__diagram-caption">Медленные техники пранаямы устойчиво усиливают α-ритм (релаксированное бодрствование), глубокая медитация вовлекает θ и γ. Гипервентиляция смещает спектр в сторону β и нарушает α-когерентность.</figcaption>
+          </figure>
+
+          <figure class="research__diagram" aria-label="Схема обратной связи: диафрагма — вагус — сердце — мозг">
+            <p class="research__diagram-title">Дыхательная петля обратной связи</p>
+            <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" role="img">
+              <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                  <polygon points="0 0, 10 3.5, 0 7" fill="#c9a878"/>
+                </marker>
+                <marker id="arrowhead-sage" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                  <polygon points="0 0, 10 3.5, 0 7" fill="#6ea8a1"/>
+                </marker>
+              </defs>
+
+              <!-- Brain node (top) -->
+              <g>
+                <rect x="140" y="20" width="120" height="46" rx="6" fill="#131a2a" stroke="#c9a878" stroke-width="1.4"/>
+                <text x="200" y="42" fill="#ece6dd" font-family="Cormorant Garamond, serif" font-size="15" font-style="italic" text-anchor="middle">Мозг</text>
+                <text x="200" y="58" fill="#94a0b6" font-family="Inter, sans-serif" font-size="9.5" text-anchor="middle">внимание · намерение · состояние</text>
+              </g>
+
+              <!-- Diaphragm node (left) -->
+              <g>
+                <rect x="20" y="130" width="120" height="46" rx="6" fill="#131a2a" stroke="#c9a878" stroke-width="1.4"/>
+                <text x="80" y="152" fill="#ece6dd" font-family="Cormorant Garamond, serif" font-size="15" font-style="italic" text-anchor="middle">Диафрагма</text>
+                <text x="80" y="168" fill="#94a0b6" font-family="Inter, sans-serif" font-size="9.5" text-anchor="middle">ритм · глубина · паузы</text>
+              </g>
+
+              <!-- Heart node (right) -->
+              <g>
+                <rect x="260" y="130" width="120" height="46" rx="6" fill="#131a2a" stroke="#6ea8a1" stroke-width="1.4"/>
+                <text x="320" y="152" fill="#ece6dd" font-family="Cormorant Garamond, serif" font-size="15" font-style="italic" text-anchor="middle">Сердце · HRV</text>
+                <text x="320" y="168" fill="#94a0b6" font-family="Inter, sans-serif" font-size="9.5" text-anchor="middle">барорефлекс · ритм</text>
+              </g>
+
+              <!-- Vagus node (bottom center) -->
+              <g>
+                <rect x="140" y="245" width="120" height="46" rx="6" fill="#131a2a" stroke="#6ea8a1" stroke-width="1.4"/>
+                <text x="200" y="267" fill="#ece6dd" font-family="Cormorant Garamond, serif" font-size="15" font-style="italic" text-anchor="middle">Блуждающий нерв</text>
+                <text x="200" y="283" fill="#94a0b6" font-family="Inter, sans-serif" font-size="9.5" text-anchor="middle">парасимпатический тонус</text>
+              </g>
+
+              <!-- Arrows: Brain → Diaphragm (voluntary control) -->
+              <path d="M 175 66 Q 100 100, 88 128" stroke="#c9a878" stroke-width="1.6" fill="none" marker-end="url(#arrowhead)" opacity="0.85"/>
+              <text x="105" y="100" fill="#c9a878" font-family="Inter, sans-serif" font-size="9.5" font-style="italic">воля</text>
+
+              <!-- Arrows: Diaphragm → Heart (mechanical/respiratory sinus arrhythmia) -->
+              <path d="M 142 153 L 258 153" stroke="#c9a878" stroke-width="1.6" fill="none" marker-end="url(#arrowhead)" opacity="0.85"/>
+              <text x="170" y="146" fill="#c9a878" font-family="Inter, sans-serif" font-size="9.5" font-style="italic">диафрагмальная помпа</text>
+
+              <!-- Arrows: Heart → Vagus (afferent signals) -->
+              <path d="M 312 178 Q 280 220, 245 248" stroke="#6ea8a1" stroke-width="1.6" fill="none" marker-end="url(#arrowhead-sage)" opacity="0.85"/>
+              <text x="282" y="222" fill="#6ea8a1" font-family="Inter, sans-serif" font-size="9.5" font-style="italic">афферентные</text>
+
+              <!-- Arrows: Vagus → Brain (interoceptive feedback) -->
+              <path d="M 180 245 Q 145 175, 188 68" stroke="#6ea8a1" stroke-width="1.6" fill="none" marker-end="url(#arrowhead-sage)" opacity="0.85" stroke-dasharray="4 3"/>
+              <text x="120" y="180" fill="#6ea8a1" font-family="Inter, sans-serif" font-size="9.5" font-style="italic">интероцепция</text>
+
+              <!-- Arrows: Vagus → Diaphragm (parasympathetic) -->
+              <path d="M 142 268 Q 100 240, 90 178" stroke="#6ea8a1" stroke-width="1.6" fill="none" marker-end="url(#arrowhead-sage)" opacity="0.6"/>
+
+              <!-- Center label -->
+              <text x="200" y="200" fill="#6b7691" font-family="JetBrains Mono, monospace" font-size="8.5" text-anchor="middle" letter-spacing="2">FEEDBACK · LOOP</text>
+            </svg>
+            <figcaption class="research__diagram-caption">Дыхание — единственный произвольно управляемый узел замкнутого контура «мозг — диафрагма — сердце — вагус». Изменяя один параметр, мы перестраиваем весь контур: от тонуса блуждающего нерва до интероцептивной чувствительности и активности дефолт-системы.</figcaption>
           </figure>
         </div>
 
-        <div class="research__papers">
-          <article class="paper">
-            <span class="paper__topic">Slow breathing · обзор</span>
-            <h3 class="paper__title">How Breath-Control Can Change Your Life: A Systematic Review on Psycho-Physiological Correlates of Slow Breathing</h3>
-            <p class="paper__cite"><strong>Zaccaro A., Piarulli A., Laurino M., et al.</strong> · Frontiers in Human Neuroscience, 2018, vol. 12, p. 353</p>
-            <p class="paper__note">Систематический обзор: как медленное дыхание (≤10 циклов/мин) влияет на ЦНС, вегетативный баланс, эмоциональные процессы и психологическое благополучие.</p>
-            <a href="https://www.frontiersin.org/articles/10.3389/fnhum.2018.00353/full" target="_blank" rel="noopener noreferrer" class="paper__link">
-              Frontiers in Neuroscience
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
-            </a>
-          </article>
-
-          <article class="paper">
-            <span class="paper__topic">HRV · резонанс</span>
-            <h3 class="paper__title">The Physiological Effects of Slow Breathing in the Healthy Human</h3>
-            <p class="paper__cite"><strong>Russo M.A., Santarelli D.M., O'Rourke D.</strong> · Breathe (European Respiratory Society), 2017, vol. 13, no. 4, pp. 298–309</p>
-            <p class="paper__note">Подробный разбор физиологии медленного дыхания: связь с вариабельностью сердечного ритма, барорефлексом, тонусом блуждающего нерва.</p>
-            <a href="https://breathe.ersjournals.com/content/13/4/298" target="_blank" rel="noopener noreferrer" class="paper__link">
-              ERS Breathe
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
-            </a>
-          </article>
-
-          <article class="paper">
-            <span class="paper__topic">DMN · медитация</span>
-            <h3 class="paper__title">Meditation Experience is Associated with Differences in Default Mode Network Activity and Connectivity</h3>
-            <p class="paper__cite"><strong>Brewer J.A., Worhunsky P.D., Gray J.R., et al.</strong> · Proceedings of the National Academy of Sciences (PNAS), 2011, vol. 108, no. 50, pp. 20254–20259</p>
-            <p class="paper__note">Опыт медитации коррелирует со снижением активности и перестройкой коннективности дефолт-системы мозга — нейронный коррелят «тишины ума».</p>
-            <a href="https://www.pnas.org/doi/10.1073/pnas.1112029108" target="_blank" rel="noopener noreferrer" class="paper__link">
-              PNAS
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
-            </a>
-          </article>
-
-          <article class="paper">
-            <span class="paper__topic">HRV · биофидбэк</span>
-            <h3 class="paper__title">Heart Rate Variability Biofeedback: How and Why Does It Work?</h3>
-            <p class="paper__cite"><strong>Lehrer P.M., Gevirtz R.</strong> · Frontiers in Psychology, 2014, vol. 5, p. 756</p>
-            <p class="paper__note">Механизмы кардиореспираторного резонанса (~6 циклов/мин) и его применения для устойчивого роста HRV и тонуса парасимпатики.</p>
-            <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2014.00756/full" target="_blank" rel="noopener noreferrer" class="paper__link">
-              Frontiers in Psychology
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
-            </a>
-          </article>
-
-          <article class="paper">
-            <span class="paper__topic">Интероцепция · insula</span>
-            <h3 class="paper__title">Interoception, Contemplative Practice, and Health</h3>
-            <p class="paper__cite"><strong>Farb N., Daubenmier J., Price C.J., et al.</strong> · Frontiers in Psychology, 2015, vol. 6, p. 763</p>
-            <p class="paper__note">Развитие интероцепции через созерцательные практики и его связь с островковой корой, эмоциональной регуляцией и психическим здоровьем.</p>
-            <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2015.00763/full" target="_blank" rel="noopener noreferrer" class="paper__link">
-              Frontiers in Psychology
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
-            </a>
-          </article>
-
-          <article class="paper">
-            <span class="paper__topic">Интероцепция · эмоции</span>
-            <h3 class="paper__title">Interoception and Emotion</h3>
-            <p class="paper__cite"><strong>Critchley H.D., Garfinkel S.N.</strong> · Current Opinion in Psychology, 2017, vol. 17, pp. 7–14</p>
-            <p class="paper__note">Обзор современных моделей связи интероцептивной чувствительности с эмоциональной грануляцией и саморегуляцией.</p>
-            <a href="https://www.sciencedirect.com/science/article/pii/S2352250X17300040" target="_blank" rel="noopener noreferrer" class="paper__link">
-              ScienceDirect
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
-            </a>
-          </article>
-        </div>
-
-        <p class="research__note"><strong>Это не вся литература курса.</strong> Полный список рецензируемых публикаций по нейрофизиологии дыхания, медитации, HRV, интероцепции и режимам работы DMN — с дайджестами и краткими разборами — входит в тариф «Профессиональный» как структурированная база <strong>White Papers</strong>.</p>
+        <p class="research__note"><strong>Полная литература курса.</strong> Структурированная база <strong>White Papers</strong> с актуальными рецензируемыми публикациями и краткими разборами по каждой теме модулей входит в тариф «Профессиональный».</p>
       </div>
     </section>
 
@@ -674,32 +676,41 @@
           <div class="author__photos">
             <img class="author__photo author__photo--lead" src="assets/leonid-author-1.jpg" alt="Леонид Кутузов, портрет в полный рост" loading="lazy" width="960" height="1280">
             <img class="author__photo author__photo--side" src="assets/leonid-author-2.jpg" alt="Леонид Кутузов, чёрно-белый портрет" loading="lazy" width="960" height="1280">
+            <img class="author__photo author__photo--side" src="assets/leonid-author-3.jpg" alt="Леонид Кутузов, портрет в позе сукхасана" loading="lazy" width="960" height="1280">
             <p class="author__photos-credit">фото · Xenia Barbur</p>
           </div>
 
           <div>
-            <h3 class="author__name" style="display:none;">Леонид Кутузов</h3>
             <p class="author__role">
-              Основатель образовательного проекта Neuro-Universe.<br>
-              Автор курсов «Нейрофизиология», «Нейрофизиология медитации» и «Нейрофизиология пранаямы».
+              Президент Федерации йоги Санкт-Петербурга.<br>
+              Нейрофизиолог, преподаватель йоги и медитации.<br>
+              Основатель образовательного проекта Neuro-Universe.
             </p>
 
             <div class="author__text">
-              <p>Работает на стыке нейронауки, психологии и созерцательных традиций. Многолетняя практика и преподавание классической йоги и медитации в сочетании с системным изучением современной нейрофизиологии — основа авторского подхода, в котором традиция и доказательная наука не противопоставляются, а взаимно уточняют друг друга.</p>
+              <p>Закончил <strong>биологический факультет МГУ</strong> и институт «Прикладной неврологии» во Франции, обучается в <strong>Stanford University</strong>. Междисциплинарные знания о работе мозга — основа авторского подхода, в котором нейронаука, психология и созерцательные традиции не противопоставляются, а уточняют друг друга.</p>
 
-              <p>Курсы проекта Neuro-Universe выстроены как академическая последовательность: от устройства мозга и нейромедиаторных систем — к нейронауке медитативных состояний — и далее к прикладным соматическим инструментам управления состоянием. Каждая программа опирается на современную литературу и сохраняет уважение к первоисточникам традиций.</p>
+              <p>Практикует йогу с 1998 года, преподаёт с 2000 года в Санкт-Петербурге. С 2005 года ведёт семинары и мастер-классы в Европе, проводит выездные ретриты по медитации в России и за рубежом. С 2007 года — президент Федерации йоги Санкт-Петербурга. С 28 лет ежегодно по два месяца проводит в буддийских монастырях; учение опирается на школы Ваджраяна, Махаяна и Дзогчен (Ати-йога).</p>
 
-              <p>За пределами публичных курсов — индивидуальная работа с практикующими специалистами и людьми высокой нагрузки: настройка персональных дыхательных протоколов, разбор вегетативных карт, сопровождение в длительной созерцательной практике.</p>
+              <p>Курсы проекта <a href="https://neuro-universe.ru" target="_blank" rel="noopener noreferrer">Neuro-Universe</a> — «Нейрофизиология для жизни», «Эксперт медитации», клуб «Вселенная Нейрохакинга» и другие — выстроены как академическая последовательность: от устройства мозга и нейромедиаторных систем к нейронауке медитативных состояний и далее к прикладным соматическим инструментам управления состоянием. «Нейрофизиология пранаямы» завершает этот соматический ряд.</p>
             </div>
 
             <div class="author__credentials">
               <div>
-                <div class="author__credential-num">3</div>
-                <div class="author__credential-label">фундаментальных курса в проекте Neuro-Universe</div>
+                <div class="author__credential-num">20+</div>
+                <div class="author__credential-label">лет изучения нейрофизиологии медитации и йоги</div>
               </div>
               <div>
-                <div class="author__credential-num">15+</div>
-                <div class="author__credential-label">лет личной практики и преподавания</div>
+                <div class="author__credential-num">10+</div>
+                <div class="author__credential-label">авторских курсов и образовательных программ</div>
+              </div>
+              <div>
+                <div class="author__credential-num">1000+</div>
+                <div class="author__credential-label">учеников за годы преподавания</div>
+              </div>
+              <div>
+                <div class="author__credential-num">с&nbsp;2007</div>
+                <div class="author__credential-label">президент Федерации йоги Санкт-Петербурга</div>
               </div>
             </div>
           </div>
@@ -734,6 +745,11 @@
             </div>
           </div>
         </div>
+
+        <figure class="format__photo">
+          <img src="assets/leonid-format.jpg" alt="Леонид Кутузов" loading="lazy" width="1440" height="960">
+          <figcaption class="format__photo-caption">«Архитектура курса — это часть его содержания. Мы не строим вокруг программы о регуляции нервной системы инфраструктуру, эту систему истощающую»</figcaption>
+        </figure>
       </div>
     </section>
 
