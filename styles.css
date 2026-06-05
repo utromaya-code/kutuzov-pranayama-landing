@@ -1933,6 +1933,14 @@ a:hover {
   border-color: var(--faint);
 }
 
+.tariff__feature-note {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.82rem;
+  color: var(--faint);
+  font-style: italic;
+}
+
 .tariff__fit {
   font-size: 0.85rem;
   color: var(--muted);
